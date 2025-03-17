@@ -1,8 +1,6 @@
 window.addEventListener("message", async function(event) {
   const { origin, data: { key, params } } = event;
 
-  console.log("Received message:", event);
-
   // Check if we've already processed this request (prevents refresh processing)
   const requestId = JSON.stringify(params);
   if (window.lastProcessedRequest === requestId) {
@@ -12,6 +10,7 @@ window.addEventListener("message", async function(event) {
     }
     return;
   }
+  
   
   // Store this request as processed
   window.lastProcessedRequest = requestId;
@@ -32,14 +31,14 @@ window.addEventListener("message", async function(event) {
   const response = { key };
   if (result !== undefined) {
     // FIXME: Remove `type` once that's in staging
-    response.result = result;
-  } else {
+    response.result = { value: result };
+  }
+  if (error !== undefined) {
     response.error = error;
   }
-
+  
   // Cache the response
   window.lastResponse = response;
 
-  // Send the response back to the source
   event.source.postMessage(response, "*");
 });
