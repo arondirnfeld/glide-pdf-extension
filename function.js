@@ -124,6 +124,7 @@ window.function = function (html, fileName, format, zoom, orientation, margin, b
 	  background-color: rgb(0 0 0 / 8%);
 	}
   
+
 	::-webkit-scrollbar-thumb {
 	  background-color: rgb(0 0 0 / 32%);
 	  border-radius: 4px;
@@ -132,7 +133,7 @@ window.function = function (html, fileName, format, zoom, orientation, margin, b
 
 	// HTML THAT IS RETURNED AS A RENDERABLE URL
 	const originalHTML = `
-	  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
 	  <style>${customCSS}</style>
 	  <div class="main">
 	  <div class="header">
