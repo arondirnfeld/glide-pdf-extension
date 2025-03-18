@@ -11,7 +11,6 @@ window.addEventListener("message", async function(event) {
     return;
   }
 
-  
   // Store this request as processed
   window.lastProcessedRequest = requestId;
 
@@ -40,8 +39,9 @@ window.addEventListener("message", async function(event) {
   // Cache the response
   window.lastResponse = response;
 
-  // Add a timestamp to the response to prevent Glide from treating it as new
+  // Add a timestamp and unique identifier to the response to prevent Glide from treating it as new
   response.timestamp = Date.now();
+  response.uniqueId = requestId; // Add unique identifier
 
   event.source.postMessage(response, "*");
 });
