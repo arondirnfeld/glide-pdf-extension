@@ -12,6 +12,7 @@ window.addEventListener("message", async function(event) {
   }
 
   
+  
   // Store this request as processed
   window.lastProcessedRequest = requestId;
 
